@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Phani Kumar Vankadari - SAP Technology Consultant</title>
+
+	<script id="sap-ui-bootstrap"
+		src="resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_horizon"
+		data-sap-ui-resourceroots='{
+			"sap.uxap.sample.ObjectPageWithLinksAndObjectStatus": "./",
+			"sap.ui.demo.mock": "mockdata"
+		}'
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-async="true"
+		data-sap-ui-frameOptions="trusted"
+		data-sap-ui-oninit="module:sap/ui/core/ComponentSupport">
+	</script>
+
+	<style>
+		html, body { height: 100%; }
+		
+		/* Make profile images round */
+		.profileImageLarge {
+			border-radius: 50% !important;
+			object-fit: cover !important;
+		}
+		
+		/* Additional styling for consistent circular appearance */
+		.profileImageLarge img {
+			border-radius: 50% !important;
+			object-fit: cover !important;
+		}
+		
+		/* Career Timeline Styles */
+		.careerTimelineContainer {
+			padding: 1rem 0;
+		}
+		
+		.timelineCard {
+			min-width: 220px;
+			position: relative;
+		}
+		
+		.timelineCardContent {
+			background-color: #f7f7f7;
+			border: 2px solid #0854a0;
+			border-radius: 8px;
+			padding: 1rem;
+			width: 200px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			transition: all 0.3s ease;
+		}
+		
+		.timelineCardContent:hover {
+			box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+			transform: translateY(-2px);
+		}
+		
+		.timelineCompany {
+			color: #0854a0 !important;
+			font-weight: bold !important;
+		}
+		
+		.timelineTitle {
+			color: #333 !important;
+			margin-top: 0.25rem !important;
+		}
+		
+		.timelinePeriod {
+			color: #666 !important;
+			font-style: italic !important;
+		}
+		
+		.timelineLocation {
+			color: #888 !important;
+			font-size: 0.75rem !important;
+		}
+		
+		.timeline-line {
+			width: 60px;
+			height: 3px;
+			background-color: #0854a0;
+			margin-top: 1rem;
+		}
+		
+		/* Synopsis Bullet Points Styling */
+		.synopsisText {
+			line-height: 1.4 !important;
+			color: #333 !important;
+		}
+		
+		/* Timeline Clickable Items */
+		.timelineClickable {
+			cursor: pointer !important;
+		}
+		
+		.timelineClickable:hover {
+			opacity: 0.8 !important;
+			transform: scale(1.02) !important;
+			transition: all 0.2s ease !important;
+		}
+		
+		/* Highlights Popover Styling */
+		.highlightText {
+			line-height: 1.3 !important;
+			color: #333 !important;
+		}
+	</style>
+</head>
+
+<body class="sapUiBody sapUiSizeCozy" id="content">
+	<div data-sap-ui-component
+		data-name="sap.uxap.sample.ObjectPageWithLinksAndObjectStatus"
+		data-height="100%"
+		data-id="container"
+		data-settings='{"id" : "sap.uxap.sample.ObjectPageWithLinksAndObjectStatus"}'
+		style="height: 100%">
+	</div>
+</body>
+</html>

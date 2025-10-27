@@ -1,0 +1,174 @@
+{
+  "profile": {
+    "name": "Phani Kumar Vankadari",
+    "title": "SAP Technology Consultant - ABAP | Fiori | BTP | Integration | SAP Business AI",
+    "email": "phani.kumar.vankadari@gmail.com",
+    "phone": "+358 414753522",
+    "linkedin": "https://www.linkedin.com/in/phani-kumar-vankadari/",
+    "location": "Helsinki, Finland",
+    "photo": "model/profile.jpg"
+  },
+  "professionalSummary": "SAP BTP and Integration Architect with 19 years of experience in ABAP, Fiori/UI5, CAP, and Integration Suite. Skilled in building scalable, cloud-based SAP solutions integrating S/4HANA, with a focus on automation, innovation, and business impact.",
+  "professionalSynopsis": [
+    "Over 19 years of experience in SAP development and solution design, starting with ABAP and Fiori/UI5, integrations and later evolving into cloud technologies on SAP Business Technology Platform (BTP).",
+    "Skilled in architecting and implementing enterprise solutions using Integration Suite, SAP CAP, Build Process Automation (BPA), and Business AI, designed to work seamlessly with S/4HANA and SAP Fiori.",
+    "Strong background in SAP Integration Suite, FrenDS iPaaS, and Jitterbit, delivering secure and reliable integrations across SAP and non-SAP systems.",
+    "Hands-on experience in ABAP, OData, and BTP Mobile Services, combining solid technical knowledge with design thinking and a focus on automation, innovation, and business simplicity."
+  ],
+  "skills": [
+    {
+      "category": "SAP BTP Consultant",
+      "details": [
+        "Experienced in designing and developing enterprise solutions on SAP Business Technology Platform (BTP).",
+        "Hands-on knowledge of SAP CAP, Fiori/UI5, and Build Process Automation (BPA).",
+        "Worked with Business AI and cloud extensions to build smart and practical applications that connect well with SAP S/4HANA."
+      ]
+    },
+    {
+      "category": "Integration Architect",
+      "details": [
+        "Skilled in SAP Integration Suite (CPI), FrenDS iPaaS, and Jitterbit for connecting SAP and non-SAP systems.",
+        "Focused on creating secure, reliable, and scalable integrations that ensure smooth data flow across business systems."
+      ]
+    },
+    {
+      "category": "Development & Automation",
+      "details": [
+        "Strong background in ABAP, OData services, and BTP Mobile Services.",
+        "Experience using Docker, Jenkins CI/CD, Google Cloud Platform (GCP), and Kubernetes to automate builds and improve performance."
+      ]
+    },
+    {
+      "category": "Database & Low-Code Platforms",
+      "details": [
+        "Worked with SAP HANA, MySQL, and MongoDB databases for application and reporting needs.",
+        "Familiar with Outsystems for low-code app development and have a good understanding of solution design and DevOps practices on the cloud."
+      ]
+    }
+  ],
+  
+  "skillMeters": [
+    {
+      "label": "SAP Fiori Architecture Design & Delivery",
+      "level": 92
+    },
+    {
+      "label": "SAP Advanced ABAP on HANA",
+      "level": 90
+    },
+    {
+      "label": "SAP Cloud Integration",
+      "level": 88
+    },
+    {
+      "label": "Outsystems – Low Code",
+      "level": 74
+    },
+    {
+      "label": "SAP IoT",
+      "level": 65
+    },
+    {
+      "label": "SAP Mobile Development",
+      "level": 60
+    }
+  ],
+  "skillStars": [
+  { "label": "SAP ABAP - Traditional", "stars": 4.0 },
+  { "label": "SAP ABAP - Advanced", "stars": 2.5 },
+  { "label": "SAP Fiori", "stars": 4.0 },
+  { "label": "SAP Business AI", "stars": 3.5 },
+  { "label": "SAP Build Process Automation", "stars": 3.0 },
+  { "label": "SAP Integration Suite", "stars": 4.5 },
+  { "label": "SAP CAP", "stars": 3.5 },
+  { "label": "Frends iPaaS", "stars": 2.0 },
+  { "label": "Jitterbit", "stars": 2.0 },
+  { "label": "SAP BTP", "stars": 3.0 }
+],
+  "experience": [
+    {
+      "company": "Neomore Consulting Oy",
+      "title": "Sr. BTP Architect",
+      "location": "Espoo, Finland",
+      "start": "2025-01-01",
+      "end": "2025-10-27",
+      "highlights": [
+        "Designed and implemented an AI-assisted monitoring and notification framework for SAP Integration Suite.",
+        "Led innovation projects using SAP CAP, Joule, and SAP Build Process Automation (BPA).",
+        "Built POCs integrating SAP Business AI with Fiori."
+      ]
+    },
+    {
+      "company": "Sofigate Oy",
+      "title": "Senior SAP BTP / Fiori & Integration Consultant",
+      "location": "Helsinki, Finland",
+      "start": "2019-10-01",
+      "end": "2024-12-31",
+      "highlights": [
+        "Custom Fiori for Metsähallitus (Business Partner).",
+        "Finance apps & ABAP enhancements for HMD Global.",
+        "CPI integrations for HKScan (SF ↔ ECC).",
+        "Integrations for Nordec using CPI, FrenDS, Jitterbit."
+      ]
+    },
+    {
+      "company": "Atos India Pvt. Ltd.",
+      "title": "SAP Fiori / BTP Consultant & ABAP Developer",
+      "location": "Pune, India",
+      "start": "2014-08-01",
+      "end": "2019-09-30",
+      "highlights": [
+        "Recruitment Fiori for Orion.",
+        "Custom VIM Fiori for Neste.",
+        "ABAP & Fiori for Stora Enso."
+      ]
+    },
+    {
+      "company": "HP GlobalSoft",
+      "title": "SAP ABAP Developer / Prototype Developer",
+      "location": "Bangalore, India",
+      "start": "2010-07-01",
+      "end": "2014-07-31",
+      "highlights": [
+        "RICEF & reports for Spirit Aero.",
+        "Fiori prototypes for SAP Unified Demo Store."
+      ]
+    },
+    {
+      "company": "Mahindra Satyam",
+      "title": "SAP ABAP Developer",
+      "location": "Hyderabad, India",
+      "start": "2006-06-01",
+      "end": "2010-06-30",
+      "highlights": [
+        "RICEF for internal SAP (Suresmart).",
+        "Custom ABAP for Birds Eye Iglo."
+      ]
+    }
+  ],
+  "achievements": [
+    "Represented SAP Labs and partner companies in multiple hackathons and prototype challenges, winning recognition for innovative SAP-based solutions.",
+    "Awarded at iTech 2016 and What the Hack 2.0 for creating practical applications using Fiori, IoT, and AI-driven ideas."
+  ],
+  "education": [
+    {
+      "school": "Jawaharlal Nehru Technological University, Hyderabad",
+      "schoolShort": "JNTU Hyderabad",
+      "degree": "B.Tech (Electrical & Electronics Engineering)",
+      "degreeShort": "B.Tech (EEE)",
+      "year": "2006"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "SAP Certified ABAP Consultant",
+      "issuer": "SAP SE",
+      "year": "2007"
+    },
+    {
+      "title": "Google Cloud Certified Associate",
+      "issuer": "Google Cloud",
+      "year": "2021"
+    }
+  ]
+}

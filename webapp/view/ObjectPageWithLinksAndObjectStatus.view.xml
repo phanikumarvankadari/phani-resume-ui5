@@ -1,0 +1,311 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:suite="sap.suite.ui.commons"
+	xmlns:goals="sap.uxap.sample.SharedBlocks.goals"
+	xmlns:personal="sap.uxap.sample.SharedBlocks.personal"
+	xmlns:employment="sap.uxap.sample.SharedBlocks.employment"
+	controllerName="sap.uxap.sample.ObjectPageWithLinksAndObjectStatus.controller.ObjectPageWithLinksAndObjectStatus"
+	height="100%">
+
+	<ObjectPageLayout id="ObjectPageLayout"
+		showTitleInHeaderContent="true"
+		upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{Resume>/profile/name}" wrapping="true" />
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:HBox>
+						<m:VBox>
+							<m:Image src="../model/profile.jpg" 
+                                class="sapUiSmallMarginEnd profileImageLarge" 
+                                width="3rem" 
+                                height="3rem" />
+						</m:VBox>
+
+						<m:VBox>
+							<m:Title text="{Resume>/profile/name}" wrapping="true"/>
+							<m:Label text="{Resume>/profile/title}"/>
+						</m:VBox>
+					</m:HBox>
+				</snappedHeading>
+
+				<expandedContent>
+					<m:Label text="{Resume>/profile/title}"/>
+				</expandedContent>
+
+				<snappedTitleOnMobile>
+					<m:Title text="{Resume>/profile/name}"/>
+				</snappedTitleOnMobile>
+
+				<actions>
+					<m:Button text="Download Resume" type="Accept" icon="sap-icon://download" press="onDownloadPDF"/>
+					<m:Button  type="Ghost" icon="model/ln.webp" 
+						press="onLinkedInPress"/>
+					<m:Button  type="Emphasized" icon="sap-icon://email" press="onEmailPress"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true">
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Image src="{Resume>/profile/photo}" 
+                        class="sapUiMediumMarginEnd profileImageLarge" 
+                        height="128px" 
+                        width="128px"
+                        error="onImageLoadError" />
+				</m:VBox>
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Contact Information" class="sapUiTinyMarginBottom" />
+
+					<m:HBox class="sapUiTinyMarginBottom">
+						<core:Icon src="sap-icon://account"/>
+						<m:Text text="{Resume>/profile/name}" class="sapUiSmallMarginBegin"/>
+					</m:HBox>
+
+					<m:HBox class="sapUiTinyMarginBottom">
+						<core:Icon src="sap-icon://email"/>
+						<m:Link text="{Resume>/profile/email}" 
+							href="mailto:{Resume>/profile/email}" 
+							class="sapUiSmallMarginBegin"
+							emphasized="true"/>
+					</m:HBox>
+
+					<m:HBox class="sapUiTinyMarginBottom">
+						<core:Icon src="sap-icon://outgoing-call"/>
+						<m:Link text="{Resume>/profile/phone}" 
+							href="tel:{Resume>/profile/phone}" 
+							class="sapUiSmallMarginBegin"/>
+					</m:HBox>
+
+					<m:HBox>
+						<core:Icon src="sap-icon://chain-link"/>
+						<m:Link text="LinkedIn Profile" 
+							href="{Resume>/profile/linkedin}" 
+							target="_blank"
+							class="sapUiSmallMarginBegin"/>
+					</m:HBox>
+				</m:VBox>
+
+				
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Profile Summary" class="sapUiTinyMarginBottom" />
+					<m:Text width="320px" text="{Resume>/professionalSummary}"/>
+				</m:VBox>
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Location" class="sapUiTinyMarginBottom" />
+					<m:HBox class="sapUiTinyMarginBottom">
+						<core:Icon src="sap-icon://map"/>
+						<m:Text text="{Resume>/profile/location}" class="sapUiSmallMarginBegin"/>
+				</m:HBox>
+				</m:VBox>
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Latest Experience" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="{Resume>/experience/0/title}" state="Information" class="sapMObjectStatusLarge"/>
+					<m:Text text="{Resume>/experience/0/company}"/>
+				</m:VBox>
+
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Total Experience" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="19 Years" state="Error" class="sapMObjectStatusLarge"/>
+					<m:Text text="and counting..."/>
+				</m:VBox>
+				<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="Current Status" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="Open" state="Success" class="sapMObjectStatusLarge"/>
+					<m:Text text="to work"/>
+				</m:VBox>				
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" id="profileSection" title="Profile" anchorBarButtonColor="Negative">
+				<subSections>
+					<ObjectPageSubSection id="profileSectionSS1" title="About" titleUppercase="false">
+						<blocks>
+							<m:FlexBox
+								alignItems="Start"
+								justifyContent="Start"
+								wrap="Wrap"
+								class="sapUxAPObjectPageSubSectionAlignContent">
+								<m:VBox class="sapUiSmallMarginEnd">
+									<m:Label text="Synopsis" class="sapUiTinyMarginBottom"/>
+									<m:List items="{Resume>/professionalSynopsis}" showSeparators="None" class="sapUiSmallMarginBottom">
+										<m:CustomListItem>
+											<m:HBox alignItems="Start" class="sapUiTinyMarginTopBottom">
+												<core:Icon src="sap-icon://bullet-text" color="#0854a0" size="0.75rem" class="sapUiTinyMarginEnd"/>
+												<m:Text text="{Resume>}" wrapping="true" class="synopsisText"/>
+											</m:HBox>
+										</m:CustomListItem>
+									</m:List>
+								</m:VBox>
+							</m:FlexBox>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection titleUppercase="false" id="skillsSection" title="Skills" anchorBarButtonColor="Positive">
+				<subSections>
+					<ObjectPageSubSection id="skillsSectionSS1" title="Technical Skills Rating" titleUppercase="false">
+						<blocks>
+							<m:List items="{Resume>/skillStars}" class="sapUiMediumMarginBottom">
+								<m:CustomListItem>
+									<m:HBox alignItems="Center" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+										<m:Label text="{Resume>label}" width="250px"/>
+										<m:RatingIndicator value="{Resume>stars}" maxValue="5" enabled="false"/>
+									</m:HBox>
+								</m:CustomListItem>
+							</m:List>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection id="skillsSectionSS2" title="Skills Details" titleUppercase="false">
+						<blocks>
+							<m:List items="{Resume>/skills}" class="sapUiMediumMarginBottom">
+								<m:CustomListItem>
+									<m:VBox class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+										<m:Title text="{Resume>category}" class="sapUiTinyMarginBottom sapUiSmallMarginTop" level="H3"/>
+										<m:List items="{Resume>details}" showSeparators="None">
+											<m:CustomListItem>
+												<m:Text text="{Resume>}" class="sapUiTinyMarginBottom"/>
+											</m:CustomListItem>
+										</m:List>
+									</m:VBox>
+								</m:CustomListItem>
+							</m:List>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" id="experienceSection" title="Experience" anchorBarButtonColor="Critical">
+				<subSections>
+					<ObjectPageSubSection id="experienceSectionSS2" title="Career Timeline" titleUppercase="false">
+						<blocks>
+							<suite:Timeline
+								id="careerTimeline"
+								axisOrientation="Horizontal"
+								enableDoubleSided="false"
+								lazyLoading="false"
+								textHeight="automatic"
+								content="{Resume>/experience}"
+								showHeaderBar="false"
+								showIcons="true"
+								class="sapUiMediumMarginBottom">
+								<suite:content>
+									<suite:TimelineItem
+										id="careerTimelineItem"
+										maxCharacters="5000"
+										dateTime="{parts: ['Resume>start', 'Resume>end'], formatter: '.formatter.periodFormatter'}"
+										text="{Resume>location}"
+										title="{Resume>title}"
+										userName="{Resume>company}"
+										icon="sap-icon://business-card"
+										/>
+								</suite:content>
+							</suite:Timeline>
+						</blocks>
+					</ObjectPageSubSection>				
+					<ObjectPageSubSection id="experienceSectionSS1" title="Experience Summary" titleUppercase="false">
+						<blocks>
+							<m:Table items="{Resume>/experience}"
+								class="sapUiMediumMarginBottom">
+								<m:columns>
+									<m:Column>
+										<m:header>
+											<m:Text text="Company"/>
+										</m:header>
+									</m:Column>
+									<m:Column>
+										<m:header>
+											<m:Text text="Title"/>
+										</m:header>
+									</m:Column>
+									<m:Column>
+										<m:header>
+											<m:Text text="Period"/>
+										</m:header>
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem press="onExperienceRowPress" type="Active">
+										<m:cells>
+											<m:Text text="{Resume>company}"/>
+											<m:Text text="{Resume>title}"/>
+											<m:Text text="{parts: ['Resume>start', 'Resume>end'], formatter: '.formatter.periodFormatter'}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection titleUppercase="false" id="educationSection" title="Education &amp; Certifications" anchorBarButtonColor="Neutral">
+				<subSections>
+					<ObjectPageSubSection id="educationSectionSS1" title="Education History" titleUppercase="false">
+						<blocks>
+							<m:Table items="{Resume>/education}" class="sapUiMediumMarginBottom">
+								<m:columns>
+									<m:Column>
+										<m:header>
+											<m:Text text="School"/>
+										</m:header>
+									</m:Column>
+									<m:Column>
+										<m:header>
+											<m:Text text="Degree"/>
+										</m:header>
+									</m:Column>
+									<m:Column>
+										<m:header>
+											<m:Text text="Year"/>
+										</m:header>
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem>
+										<m:cells>
+											<m:Text text="{Resume>school}"/>
+											<m:Text text="{Resume>degree}"/>
+											<m:Text text="{Resume>year}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection id="certificationsSectionSS1" title="Professional Certifications" titleUppercase="false">
+						<blocks>
+							<m:List items="{Resume>/certifications}" class="sapUiMediumMarginBottom">
+								<m:CustomListItem>
+									<m:HBox alignItems="Center" class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginTopBottom">
+										<core:Icon src="sap-icon://certificate" class="sapUiTinyMarginEnd"/>
+										<m:VBox>
+											<m:Title text="{Resume>title}" level="H3"/>
+											<m:HBox alignItems="Center">
+												<m:Text text="{Resume>issuer}" class="sapUiTinyMarginEnd"/>
+												<m:Text text="({Resume>year})" class="sapUiTinyMarginBegin"/>
+											</m:HBox>
+										</m:VBox>
+									</m:HBox>
+								</m:CustomListItem>
+							</m:List>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

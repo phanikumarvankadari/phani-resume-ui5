@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m">
+    <m:VBox class="sapUiMediumMarginTop sapUiMediumMarginBottom sapUiMediumMarginBeginEnd">
+        <m:Timeline
+            enableDoubleSided="true"
+            showHeaderBar="false"
+            content="{Resume>/experience}">
+            <m:TimelineItem
+                dateTime="{
+                    parts: [
+                        {path: 'Resume>start'},
+                        {path: 'Resume>end'}
+                    ],
+                    formatter: '.formatter.periodFormatter'
+                }"
+                title="{Resume>title}"
+                text="{Resume>company}"
+                icon="sap-icon://activity-individual"/>
+        </m:Timeline>
+    </m:VBox>
+</mvc:View>

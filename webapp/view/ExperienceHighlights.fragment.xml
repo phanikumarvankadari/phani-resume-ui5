@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover
+		id="experienceHighlightsPopover"
+		title="Key Highlights"
+		class="sapUiContentPadding"
+		placement="Top">
+		<content>
+			<VBox class="sapUiMediumMargin">
+				<Title text="{/selectedExperience/title}" level="H3" class="sapUiTinyMarginBottom"/>
+				<Text text="{/selectedExperience/company}" class="sapUiSmallText sapUiTextBold sapUiTinyMarginBottom"/>
+				<Text text="{/selectedExperience/location}" class="sapUiSmallText sapUiTinyMarginBottom"/>
+				<List items="{/selectedExperience/highlights}" showSeparators="None" class="sapUiSmallMarginTop">
+					<CustomListItem>
+						<HBox alignItems="Start" class="sapUiTinyMarginTopBottom">
+							<core:Icon src="sap-icon://bullet-text" color="#0854a0" size="0.75rem" class="sapUiTinyMarginEnd" visible="true"/>
+							<Text text="{}" wrapping="true" class="highlightText"/>
+						</HBox>
+					</CustomListItem>
+				</List>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Close" press="onCloseHighlightsPopover"/>
+			</Toolbar>
+		</footer>
+	</Popover>
+</core:FragmentDefinition>
