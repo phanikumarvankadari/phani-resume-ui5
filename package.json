@@ -4,8 +4,14 @@
   "author": "SAP SE",
   "description": "Sample: Object Page Header with Links, Rating Indicator, and Object Status",
   "scripts": {
-    "start": "ui5 serve",
-    "build": "ui5 build"
+    "start": "ui5 serve --host 0.0.0.0 --port 8081",
+    "build": "ui5 build",
+    "docker:build": "docker build -t phani-resume-app .",
+    "docker:run": "docker run -p 8081:8081 phani-resume-app",
+    "docker:dev": "docker-compose up --build",
+    "docker:prod": "docker-compose --profile production up -d",
+    "docker:stop": "docker-compose down",
+    "docker:clean": "docker system prune -f && docker volume prune -f"
   },
   "devDependencies": {
     "@ui5/cli": "^4"
