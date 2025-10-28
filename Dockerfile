@@ -1,5 +1,8 @@
 # SAP UI5 Resume Application - Docker Image
-FROM node:18-alpine
+FROM node:20-alpine
+
+# Install wget for health checks
+RUN apk add --no-cache wget
 
 # Set working directory
 WORKDIR /app
@@ -11,8 +14,8 @@ RUN addgroup -g 1001 -S ui5user && \
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production && \
+# Install all dependencies (including UI5 CLI in devDependencies)
+RUN npm ci && \
     npm cache clean --force
 
 # Copy application source code

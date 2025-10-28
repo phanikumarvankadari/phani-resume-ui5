@@ -4,7 +4,7 @@
   "author": "SAP SE",
   "description": "Sample: Object Page Header with Links, Rating Indicator, and Object Status",
   "scripts": {
-    "start": "ui5 serve --host 0.0.0.0 --port 8081",
+    "start": "ui5 serve --port 8081 --accept-remote-connections",
     "build": "ui5 build",
     "docker:build": "docker build -t phani-resume-app .",
     "docker:run": "docker run -p 8081:8081 phani-resume-app",
