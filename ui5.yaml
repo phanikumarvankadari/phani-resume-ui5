@@ -12,3 +12,7 @@ framework:
     - name: sap.ui.layout
     - name: sap.uxap
     - name: sap.suite.ui.commons
+
+server:
+  settings:
+    welcomeFile: "/index.html"

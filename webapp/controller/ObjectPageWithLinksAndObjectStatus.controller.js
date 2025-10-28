@@ -163,6 +163,118 @@ sap.ui.define([
 				// Open the popover
 				this._openHighlightsPopover(oSource, oPopoverModel);
 			}
+		},
+
+		// Share functionality
+		onSharePress: function(oEvent) {
+			var oButton = oEvent.getSource();
+			var oView = this.getView();
+
+			if (!this._pSharePopover) {
+				Fragment.load({
+					id: oView.getId(),
+					name: "sap.uxap.sample.ObjectPageWithLinksAndObjectStatus.view.ShareOptions",
+					controller: this
+				}).then(function (oPopover) {
+					oView.addDependent(oPopover);
+					this._pSharePopover = oPopover;
+					oPopover.openBy(oButton);
+				}.bind(this));
+			} else {
+				this._pSharePopover.openBy(oButton);
+			}
+		},
+
+		_getCurrentUrl: function() {
+			return window.location.href;
+		},
+
+		_getShareText: function() {
+			var oResumeModel = this.getView().getModel("Resume");
+			var sName = oResumeModel.getProperty("/profile/name");
+			var sTitle = oResumeModel.getProperty("/profile/title");
+			return "Check out " + sName + "'s resume - " + sTitle;
+		},
+
+		onCopyLink: function() {
+			var sUrl = this._getCurrentUrl();
+			
+			if (navigator.clipboard && window.isSecureContext) {
+				navigator.clipboard.writeText(sUrl).then(function() {
+					this._showShareMessage("Link copied to clipboard!");
+				}.bind(this)).catch(function() {
+					this._fallbackCopyTextToClipboard(sUrl);
+				}.bind(this));
+			} else {
+				this._fallbackCopyTextToClipboard(sUrl);
+			}
+		},
+
+		_fallbackCopyTextToClipboard: function(sText) {
+			var textArea = document.createElement("textarea");
+			textArea.value = sText;
+			textArea.style.top = "0";
+			textArea.style.left = "0";
+			textArea.style.position = "fixed";
+			document.body.appendChild(textArea);
+			textArea.focus();
+			textArea.select();
+			
+			try {
+				document.execCommand('copy');
+				this._showShareMessage("Link copied to clipboard!");
+			} catch (err) {
+				this._showShareMessage("Unable to copy link", "Error");
+			}
+			
+			document.body.removeChild(textArea);
+		},
+
+		onShareLinkedIn: function() {
+			var sUrl = this._getCurrentUrl();
+			var sText = this._getShareText();
+			var sLinkedInUrl = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(sUrl);
+			window.open(sLinkedInUrl, '_blank');
+		},
+
+		onShareEmail: function() {
+			var sUrl = this._getCurrentUrl();
+			var sText = this._getShareText();
+			var oResumeModel = this.getView().getModel("Resume");
+			var sName = oResumeModel.getProperty("/profile/name");
+			
+			var sSubject = encodeURIComponent("Resume: " + sName);
+			var sBody = encodeURIComponent(sText + "\n\n" + sUrl);
+			var sMailtoUrl = "mailto:?subject=" + sSubject + "&body=" + sBody;
+			
+			window.location.href = sMailtoUrl;
+		},
+
+		onShareTwitter: function() {
+			var sUrl = this._getCurrentUrl();
+			var sText = this._getShareText();
+			var sTwitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(sText) + "&url=" + encodeURIComponent(sUrl);
+			window.open(sTwitterUrl, '_blank');
+		},
+
+		onShareWhatsApp: function() {
+			var sUrl = this._getCurrentUrl();
+			var sText = this._getShareText();
+			var sWhatsAppUrl = "https://wa.me/?text=" + encodeURIComponent(sText + " " + sUrl);
+			window.open(sWhatsAppUrl, '_blank');
+		},
+
+		_showShareMessage: function(sMessage, sType) {
+			var oMessageStrip = this.byId("shareMessage");
+			if (oMessageStrip) {
+				oMessageStrip.setText(sMessage);
+				oMessageStrip.setType(sType || "Success");
+				oMessageStrip.setVisible(true);
+				
+				setTimeout(function() {
+					oMessageStrip.setVisible(false);
+				}, 3000);
+			}
 		}
 	});
 });

@@ -1,0 +1,60 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover
+		id="sharePopover"
+		title="Share Resume"
+		class="sapUiContentPadding"
+		placement="Bottom"
+		showHeader="true">
+		<content>
+			<VBox class="sapUiMediumMargin">
+				<Label text="Share this resume:" class="sapUiTinyMarginBottom"/>
+				
+				<VBox class="sapUiSmallMarginTop">
+					<Button 
+						text="Copy Link" 
+						icon="sap-icon://chain-link" 
+						press="onCopyLink" 
+						class="sapUiTinyMarginBottom shareButton"
+						width="200px"/>
+					
+					<Button 
+						text="Share on LinkedIn" 
+						icon="sap-icon://linkedin" 
+						press="onShareLinkedIn" 
+						class="sapUiTinyMarginBottom shareButton"
+						width="200px"/>
+					
+					<Button 
+						text="Share via Email" 
+						icon="sap-icon://email" 
+						press="onShareEmail" 
+						class="sapUiTinyMarginBottom shareButton"
+						width="200px"/>
+					
+					<Button 
+						text="Share on Twitter" 
+						icon="sap-icon://twitter" 
+						press="onShareTwitter" 
+						class="sapUiTinyMarginBottom shareButton"
+						width="200px"/>
+					
+					<Button 
+						text="Share on WhatsApp" 
+						icon="sap-icon://message-success" 
+						press="onShareWhatsApp" 
+						class="shareButton"
+						width="200px"/>
+				</VBox>
+				
+				<MessageStrip 
+					id="shareMessage"
+					text=""
+					type="Success"
+					visible="false"
+					class="sapUiMediumMarginTop"/>
+			</VBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

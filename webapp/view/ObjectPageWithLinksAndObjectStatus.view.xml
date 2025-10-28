@@ -4,6 +4,7 @@
 	xmlns:forms="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
 	xmlns:suite="sap.suite.ui.commons"
+	xmlns:micro="sap.suite.ui.microchart"
 	xmlns:goals="sap.uxap.sample.SharedBlocks.goals"
 	xmlns:personal="sap.uxap.sample.SharedBlocks.personal"
 	xmlns:employment="sap.uxap.sample.SharedBlocks.employment"
@@ -48,6 +49,7 @@
 					<m:Button  type="Ghost" icon="model/ln.webp" 
 						press="onLinkedInPress"/>
 					<m:Button  type="Emphasized" icon="sap-icon://email" press="onEmailPress"/>
+					<m:Button text="Share" type="Transparent" icon="sap-icon://share-2" press="onSharePress" tooltip="Share Resume"/>
 				</actions>
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
@@ -128,7 +130,7 @@
 		</headerContent>
 
 		<sections>
-			<ObjectPageSection titleUppercase="false" id="profileSection" title="Profile" anchorBarButtonColor="Negative">
+			<ObjectPageSection titleUppercase="false" id="profileSection" title="Profile">
 				<subSections>
 					<ObjectPageSubSection id="profileSectionSS1" title="About" titleUppercase="false">
 						<blocks>
@@ -154,7 +156,7 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection titleUppercase="false" id="skillsSection" title="Skills" anchorBarButtonColor="Positive">
+			<ObjectPageSection titleUppercase="false" id="skillsSection" title="Skills">
 				<subSections>
 					<ObjectPageSubSection id="skillsSectionSS1" title="Technical Skills Rating" titleUppercase="false">
 						<blocks>
@@ -168,7 +170,25 @@
 							</m:List>
 						</blocks>
 					</ObjectPageSubSection>
-					<ObjectPageSubSection id="skillsSectionSS2" title="Skills Details" titleUppercase="false">
+					<ObjectPageSubSection id="skillsSectionSS2" title="Skills Comparison Chart" titleUppercase="false" visible="false"> 
+						<blocks>
+							<micro:ComparisonMicroChart 
+								id="skillsComparisonChart"
+								class="sapUiMediumMarginBottom"
+								data="{Resume>/skillMeters}"
+								size="M"
+								scale="Percent"
+								colorPalette="sapUiChartPaletteQualitativeHue1">
+								<micro:data>
+									<micro:ComparisonMicroChartData 
+										title="{Resume>label}" 
+										value="{Resume>level}" 
+										displayValue="{Resume>level}%"/>
+								</micro:data>
+							</micro:ComparisonMicroChart>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection id="skillsSectionSS3" title="Skills Details" titleUppercase="false">
 						<blocks>
 							<m:List items="{Resume>/skills}" class="sapUiMediumMarginBottom">
 								<m:CustomListItem>
@@ -186,7 +206,7 @@
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
-			<ObjectPageSection titleUppercase="false" id="experienceSection" title="Experience" anchorBarButtonColor="Critical">
+			<ObjectPageSection titleUppercase="false" id="experienceSection" title="Experience">
 				<subSections>
 					<ObjectPageSubSection id="experienceSectionSS2" title="Career Timeline" titleUppercase="false">
 						<blocks>
@@ -251,7 +271,7 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection titleUppercase="false" id="educationSection" title="Education &amp; Certifications" anchorBarButtonColor="Neutral">
+			<ObjectPageSection titleUppercase="false" id="educationSection" title="Education &amp; Certifications">
 				<subSections>
 					<ObjectPageSubSection id="educationSectionSS1" title="Education History" titleUppercase="false">
 						<blocks>
