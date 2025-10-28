@@ -75,7 +75,7 @@
   ],
   "skillStars": [
   { "label": "SAP ABAP - Traditional", "stars": 4.0 },
-  { "label": "SAP ABAP - Advanced", "stars": 2.5 },
+  { "label": "RAP, ABAP on HANA,ABAP-Fiori", "stars": 3.0 },
   { "label": "SAP Fiori", "stars": 4.0 },
   { "label": "SAP Business AI", "stars": 3.5 },
   { "label": "SAP Build Process Automation", "stars": 3.0 },

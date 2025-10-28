@@ -14,5 +14,8 @@ framework:
     - name: sap.suite.ui.commons
 
 server:
-  settings:
-    welcomeFile: "/index.html"
+  customMiddleware:
+    - name: ui5-middleware-index
+      afterMiddleware: compression
+      configuration:
+        path: "/index.html"

@@ -28,16 +28,16 @@ RUN chown -R ui5user:ui5user /app
 USER ui5user
 
 # Expose the port that UI5 tooling uses
-EXPOSE 8081
+EXPOSE 8080
 
 # Health check to ensure application is running
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:8081/ || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/ || exit 1
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV UI5_HOST=0.0.0.0
-ENV UI5_PORT=8081
+ENV UI5_PORT=8080
 
 # Start the application
 CMD ["npm", "start"]
