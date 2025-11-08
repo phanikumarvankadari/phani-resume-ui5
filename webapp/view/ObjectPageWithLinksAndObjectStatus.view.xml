@@ -48,6 +48,8 @@
 					<m:Button text="Download Resume" type="Accept" icon="sap-icon://download" press="onDownloadPDF"/>
 					<m:Button  type="Ghost" icon="model/ln.webp" 
 						press="onLinkedInPress"/>
+					<m:Button  type="Ghost" icon="model/github.svg" 
+						press="onGitHubPress" tooltip="GitHub Portfolio"/>
 					<m:Button  type="Emphasized" icon="sap-icon://email" press="onEmailPress"/>
 					<m:Button text="Share" type="Transparent" icon="sap-icon://share-2" press="onSharePress" tooltip="Share Resume"/>
 				</actions>
