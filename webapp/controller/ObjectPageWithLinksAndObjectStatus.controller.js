@@ -79,6 +79,11 @@ sap.ui.define([
             var sLinkedInUrl = oModel.getProperty("/profile/linkedin");
             window.open(sLinkedInUrl, '_blank');
 		},
+
+        onGitPress: function() {
+            window.open('https://phanikumarvankadari.github.io/', '_blank');
+        },
+
 		openQuickView: function (oEvent, oModel) {
 			var oButton = oEvent.getSource(),
 				oView = this.getView();
